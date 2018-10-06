@@ -1,9 +1,12 @@
-user=verchol
-key=3a7ed2147a0144cbfc90d16d9797b5ed34864714
-org=codefresh-1234
+#!/bin/bash
+env
+echo 'args' - $user $key $command $args
+
 command=${command:- 'ps'}
+licenses=${licenses:- 'MIT'}
 args=${args:- 'codefresh-1234/test/cf-demo'}
 
 
-jfrog config --user $user  --key=$key
+jfrog bt config --user $user  --key=$key --licenses=MIT
+echo running $command with $args
 jfrog bt $command $args 
